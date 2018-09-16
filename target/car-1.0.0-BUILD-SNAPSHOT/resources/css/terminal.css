@@ -1,0 +1,1992 @@
+@import "jqtransform.css";
+@import "datePicker.css";
+@import "date.css";
+@import "validationEngine.jquery.css";
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,700&amp;subset=latin,latin-ext);
+body {	font-size:12px;	text-align:left; margin:0px 0 0 0; background:url(../tema/v3/bg_header.jpg) top repeat-x #f8f8f8; font-family:Tahoma;}
+img { border:0px; }
+a { text-decoration:none; }
+.sag { float:right; }
+.sol { float:left; }
+.fontkalin { font-weight:bold; color:#111111 !important; }
+.temizle { clear:both; }
+#genel { width:1000px; margin:0 auto; }
+#ustalan { width:1000px; height:140px; position:relative; margin-bottom:20px; }
+#ustalan .menu-sol { width:33px; height:32px; }
+#ustalan .menu { width:360px; height:25px; padding:7px 0 0 0;}
+#ustalan .menu-sag { width:8px; height:32px; }
+#ustalan .ustmenu a{ display:block; margin:0 10px; color:#999; font-size:10px; }
+#ustalan .ustmenu a:hover{ text-decoration:underline; }
+#ustalan .ozellikler { display:none; height:69px; width:532px; margin-top:29px; padding-left:40px; z-index:-1 !important; }
+#ustalan .telefon { display:none; color:#a4adb0; font-size:28px !important; letter-spacing:-2px; font-weight:normal !important; padding:33px 0 0 50px; width:188px; float:right; }
+#ustalan .onlinedestek { display:none; position:absolute; top:0px; width:141px; margin-left:140px; height:30px; overflow:hidden; }
+#ustalan .onlinedestek a{ display:block; color:#ffffff; width:141px; font-size:12px; font-weight:300; padding-left:46px; padding-top:8px; font-weight:300; }
+#ustalan .havadurumu {  }
+#ustalan .hava { width:45px; height:47px; margin:3px 0 0 10px; display:none; }
+#ustalan .derece { width:125px; color:#fff; text-align:center; margin-top:10px; font-size:14px; display:none; }
+#ustalan .musterihiz { position:absolute; top:13px; color:#ffffff; margin-left:-60px; font-size:12px; letter-spacing:-0px; }
+#ustalan .diller { width:240px; height:30px; margin-top:-7px; margin-right:-7px; }
+#logo { width:300px; height:100px; margin-top:40px; overflow:hidden; }
+#logo a img { height:100%; }
+#menubar { width:750px; height:100px; overflow:hidden; float:right; margin-top:-100px; text-align:right; background:green; display:none; }
+#menubar .menu-sol{ display:none; width:15px; height:42px; background:url(../tema/v2/bg_menubar_sol.jpg); }
+#menubar .menu{ width:970px; height:42px; }
+#menubar .menu-sag{ display:none; width:15px; height:42px; background:url(../tema/v2/bg_menubar_sag.jpg); }
+#menubar .anasayfa { width:18px; padding-left:4px; height:16px; margin-top:12px; }
+#menubar .cizgi { width:2px; height:42px; background:url(../tema/v2/icon_anasayfa_cizgi.jpg); margin:0 15px; margin-right:0px; }
+#menubar .ustmenu a{ font-family: Arial; font-weight: 700; font-size:14px; letter-spacing:0px; display:inline-block; margin:0px; padding:10px; color:#ffffff; background:red; text-transform:uppercase; }
+#menubar .ustmenu a:hover{ color:#ffffff; }
+#menubar .ustmenu:first-child a{ border-left:none; }
+#menubar .ustmenu:last-child a { border-right:none; }
+
+#ustalan .mbar {
+    position:absolute;
+    width:750px;
+    height:100px;
+    overflow:hidden;
+    right:0px;
+    top:40px;
+    text-align:right;
+    font-size:0px;
+}
+
+#ustalan .mbar a {
+    display:inline-block;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:31px;
+    padding-bottom:51px;
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+    text-transform: uppercase;
+    color:#ffffff;
+    border-left:1px solid #333333;
+    background:url(../tema/v3/menua.png) no-repeat center 25px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+#ustalan .mbar a:last-child {
+    border-right:1px solid #333333;
+}
+
+#ustalan .mbar a:hover {
+    background-color:#ffffff;
+    color:#333333;
+}
+
+#ustalan .saghaber {
+    position:absolute;
+    top:0px;
+    left:0px;
+    background:red;
+    padding:13px;
+    width:500px;
+    padding-left:30px;
+    background:url(../tema/v3/habericon.png) no-repeat left;
+    overflow:hidden;
+}
+
+#slideralani { width:1000px; height:230px; margin-bottom:60px; margin-top:40px; }
+
+.sliderfiyat {
+    position:absolute;
+    background:url(../tema/v2/bg_fiyat.png) no-repeat center;
+    width:100px;
+    height:50px;
+    padding-top:30px;
+    text-align:center;
+    font-family: 'Alegreya Sans SC', Arial, serif; font-weight: 700; 
+    color:#ffffff;
+    font-size:18px;
+    left:400px;
+    top:0px;
+}
+
+.lilpopup {
+    position:absolute;
+    width:86px;
+    height:38px;
+    padding-top:4px;
+    background:url(../tema/v2/popupbg.png) no-repeat center;
+    left:50%;
+    margin-left:-43px;
+    top:-40px;
+    text-align:center;
+    display:none;
+}
+
+#minisol {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+#minisol ul {
+    list-style:none;
+    float:left;
+    padding:0px;
+    margin:0px;
+    color:#ffffff;
+    font-weight:normal;
+    width:520px;
+    height:16px;
+    overflow:hidden;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+#minisol ul li a {
+    color:#ffffff;
+    text-decoration:none;
+}
+
+#slider { width:1000px; height:230px;}
+#slider .resim { width:490px;}
+#slider .resim img{ width:430px; height:230px;}
+#featured-slider{width:1000px;height:264px;overflow:hidden;position:relative;}
+#slider {width:5000px;height:230px;position:absolute;}
+#slider .aracadi { color:#666666; font-weight:300; font-size:36px; letter-spacing:-1px; margin-top:20px; width:510px; text-align:right; font-family: 'Alegreya Sans SC', Arial, serif; font-weight: 400; }
+#slider .aciklama {color:#5a5a5a; font-size:11px; margin-top:15px; width:510px; text-align:right; height:60px; font-weight:300;}
+#slider .div{width:1000px;height:230px;float:left;position:relative;}
+#slider .ozellikler { width:auto; font-size:11px; font-family:Arial; font-weight:300; color:#ffffff; height:38px; padding:7px 0 0 10px; text-align:left; float:right; }
+#slider .rezervasyon a{display:block; width:138px; height:36px; margin-right:45px; }
+#slider .incele a{display:block; width:82px; height:36px;}
+#slider .ozellikler div img { padding-left:10px; }
+#slider .ozellikler .sliderkisi { width:85px; height:28px; padding-top:10px; background:url(../tema/v2/slideo.png) no-repeat center; }
+.sliderkisi span, .bagaj span, .yakit span, .klimali span, .vites span { display:block; font-size:21px; font-weight:bold; padding-left:55px; margin-top:-5px; }
+.sliderkisi img, .bagaj img, .yakit img, .klimali img, .vites img { margin-left:5px; }
+#slider .bagaj { width:85px; height:28px; padding-top:10px; background:url(../tema/v2/slideo.png) no-repeat center; margin-left:28px; }
+#slider .yakit { width:85px; height:28px; padding-top:10px; background:url(../tema/v2/slideo.png) no-repeat center; margin-left:28px; }
+#slider .klimali { width:85px; height:28px; padding-top:10px; background:url(../tema/v2/slideo.png) no-repeat center; margin-left:8px; display:none; }
+#slider .vites { width:85px; height:28px; padding-top:10px; background:url(../tema/v2/slideo.png) no-repeat center; margin-left:28px; }
+
+#sayfalama{position:absolute; bottom:0px; left:50%; margin-left:-65px; width:110px; padding-left:20px; padding-top:9px; height:21px; background:url(../tema/v2/slidebg.png) no-repeat center; text-align:center; }
+#sayfalama a{background:url(../tema/v2/icon_gri.png);width:14px;height:14px;display:block;float:left;text-decoration:none; margin-left:2px; margin-right:2px;}
+#sayfalama a:hover{background:url(../tema/v2/icon_kirmizi.png);}
+#sayfalama a span{display:none;}
+
+
+.tbigbaslik {
+    font-family: Arial;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    font-size: 19px;
+    color: #ffffff;
+    padding:10px;
+    padding-top:5px;
+    padding-bottom:0px;
+    margin:10px;
+    display:block;
+    text-align:center;
+    line-height:26px;
+    overflow:hidden;
+}
+
+.tbigbaslik.icond {
+     background:url(../tema/rez_takvim.png) no-repeat left top;
+     padding-left:40px;
+     padding-top:5px;
+     padding-bottom:3px;
+     font-family: 'Alegreya Sans SC', Arial, serif !important; font-weight: 700 !important;
+     color:#111111 !important;
+     font-size:21px !important;
+}
+
+.ozellabel {
+    width:1000px !important;
+}
+
+#infocarrier {
+    padding-left:15px;
+}
+
+#infocarrier label {
+    display:block;
+    float:left;
+    width:140px;
+    height:20px;
+    padding:5px;
+    overflow:hidden;
+    color:#ffffff;
+}
+
+#mesafe .jqTransformSelectWrapper {
+    background: url(../tema/v3/ozelsol.png) no-repeat;
+}
+
+#mesafe .jqTransformSelectWrapper a.jqTransformSelectOpen {
+    background: url(../tema/v3/ozelsag.png) no-repeat right top;
+}
+
+#infocarrier label img {
+    padding-right:5px;
+    margin-bottom:-4px;
+}
+
+#vitrinalani { width:1000px; height:385px; overflow:hidden; }
+
+#slcont {
+    width:100%;
+    overflow:hidden;
+}
+
+#solok {
+    display:table-cell;
+    width:34px;
+    background:url(../tema/v2/solok.png) no-repeat left center;
+    cursor:pointer;
+    cursor:hand;
+}
+
+#sagok {
+    display:table-cell;
+    width:34px;
+    background:url(../tema/v2/sagok.png) no-repeat right center;
+    cursor:pointer;
+    cursor:hand;
+}
+
+#slmid {
+    
+}
+
+#slmidinner {
+    width:1000px;
+    height:350px;
+    overflow:hidden;
+    position:relative;
+}
+
+#slidebullets {
+    width:auto;
+    height:20px;
+    padding-top:4px;
+    margin:0px auto;
+    margin-top:10px;
+}
+
+#slidebullets a {
+    background: url(../tema/v3/bullet.png);
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.clear { width:100%; height:10px; overflow:hidden; clear:both; }
+
+#slidebullets a#actslide {
+    background: url(../tema/v3/bulleton.png);
+}
+
+#newslide2 { width:auto; position:absolute; }
+
+.vdiv {
+    width:318px;
+    height:340px;
+    margin-right:20px;
+    overflow:hidden;
+    position:relative;
+    float:left;
+    background:#ffffff;
+    border:1px solid #dadada;
+}
+.vdivimg {
+    background:#f2f2f2;
+}
+.vdivimg img {
+    width:300px;
+    height:160px;
+    padding:10px;
+}
+.vdivtext {
+    text-align:left;
+    position:relative;
+}
+
+.vdivtext h1 {
+    font-family: Arial;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    font-size: 16px;
+    color: #111111;
+    padding:10px;
+    margin:10px;
+    padding-left:0px;
+    margin-top:0px;
+    border-bottom:1px solid #dadada;
+    display:block;
+    width:210px;
+    height:20px;
+    line-height:26px;
+    overflow:hidden;
+}
+
+.vdivozellikler h2 {
+    margin:0px;
+    padding:0px;
+    font-size:14px;
+    font-weight:normal;
+}
+
+.vdivfiyat {
+    position:absolute;
+    right:0px;
+    font-size:15px;
+    font-family: Tahoma; font-weight: 700;
+    letter-spacing:-1px;
+    color:#ffffff;
+    width:80px;
+    padding-top:15px;
+    padding-bottom:15px;
+    top:0px;
+    text-align:center;
+    background:#d90000;
+}
+
+.vdivgo {
+    border-top:1px solid #dadada;
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    width:300px;
+    text-align:right;
+}
+
+#modulcont {
+    clear:both;
+    width:100%;
+    height:220px;
+    margin:0px auto;
+    background:url(../tema/v3/modulbg.png) no-repeat top;
+    overflow:hidden;
+}
+
+.altmodulinput {
+    width:160px;
+    padding:10px;
+    padding-left:30px;
+    border:none;
+    outline:none;
+    color:#ffffff;
+    background:url(../tema/v3/custinput.png) no-repeat center;
+}
+
+#modulalani { width:1000px; margin-top:20px; margin:0px auto; }
+#modulalani .modul { width:318px; overflow:hidden; margin-top:20px; border-top:1px solid #dadada; border-bottom:1px solid #dadada; }
+#modulalani .modul .icon { width:27px; height:27px; display:block; margin:8px 7px 7px 15px; }
+#modulalani .modul .yazi { margin:13px 0 7px 5px; color:#f2f2f2; font-size:18px; font-weight:300; letter-spacing:-1px; }
+#modulalani .modulbaslik { width:320px; height:41px; font-size:14px; }
+#modulalani .modulalt { width:318px; min-height:130px; }
+#modulalani .modulalt .fiyat{ width:318px; height:30px; }
+#modulalani .modulalt .resim{ padding:5px 10px 0 5px; }
+#modulalani .modulalt .mini{ padding:9px 10px 0 5px; color:#444; }
+#solmenu { width:300px; }
+.titz { display:block; padding-bottom:6px; clear:both; }
+.titz.beyaz { color:#ffffff; }
+.titz.martop { padding-top:8px; }
+#solmenu .modul { width:280px; margin-right:20px; }
+#solmenu .modul .icon { width:34px; height:34px; display:block; padding-right:10px; }
+#solmenu .modul .yazi { margin:8px 0 8px 0px; color:#5a5a5a; font-size:18px; }
+#solmenu .modulbaslik { width:300px; font-size:20px; font-family:Arial; font-weight:700; letter-spacing:0px; color:#333333; margin-bottom:5px; padding-bottom:10px; border-bottom:1px solid #dadada; background:url(../tema/v3/baslikalt.png) no-repeat left bottom; }
+#solmenu .modulbaslik img { display:none; }
+#solmenu .modulalt { width:298px; margin-top:4px; }
+#solmenu .modulalt .resim{ padding:6px 0px 0 10px; display:none; }
+#solmenu .modulalt .fiyat, #solmenu .modulalt .fiyat2 { background:url(../tema/v3/menulink.png) -13px -4px no-repeat; -webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
+#solmenu .modulalt .fiyat:hover, #solmenu .modulalt .fiyat2:hover { background:url(../tema/v3/menulink.png) -13px -40px no-repeat; }
+#solmenu .modulalt .fiyat a, #solmenu .modulalt .fiyat2 a{ display:block; width:288px; padding-left:10px; height:30px; margin-bottom:5px; font-weight:300 !important; text-transform:uppercase; border-bottom:1px solid #dadada; }
+#solmenu .modulalt .mini{ padding:9px 10px 0 10px; color:#444; }
+#foocont { clear:both; width:100%; height:106px; background:url(../tema/v3/footerbg.png) repeat-x top center #222222; }
+#foother { width:1000px; height:96px; margin:0px auto !important; float:none !important; }
+.lp { color: #d90000; font-size:13px; font-weight:700; font-family:Tahoma; margin:0px; padding:0px; margin-top:-10px; }
+#foother .foother-sol { width:20px; height:90px; display:none; }
+#foother .foother { width:289px; height:70px; padding-top:20px; }
+#foother .foother .altlogo{ margin-top:-10px; }
+#foother .foother .yazi { width:240px; font-size:11px; color:#ffffff; position:absolute; margin:32px 0 0 145px; display:none; }
+#foother .foother-sag { width:60px; height:90px; }
+#foother .foother-sol2 { width:auto; height:60px; padding-top:30px; text-align:right; float:right; margin-right:20px; }
+#foother .foother-sol2 .menu a{ display:none; padding:0 0 0 20px; color:#fff; margin-top:15px; }
+#foother .foother-sol2 .tanitim { color:#fff; font-size:10px; text-align:right; float:right; margin-top:-20px; margin-right:-18px; }
+#foother .foother-sol2 .tanitim span { display:block; color:#f2f2f2; font-size:34px !important; margin-top:-10px; margin-bottom:20px; letter-spacing:1px; font-family:Gabriola; padding-bottom:2px; font-weight:bold !important; }
+#foother .foother-sag2 { width:10px; height:90px; display:none; }
+#ebultenozel { margin:10px 10px 15px 10px; color:#333; font-size:18px; }
+.title { width:100%; font-size:20px; font-family:Arial; font-weight:700; letter-spacing:0px; color:#111111; margin-bottom:5px; padding-bottom:10px; border-bottom:1px solid #dadada; background:url(../tema/v3/baslikalt.png) no-repeat left bottom; }
+.title span { color:#5a5a5a; }
+.sayfa { width:658px; text-align:left; line-height:22px; padding-bottom:10px; padding-top:5px; margin-bottom:10px; font-size:14px; color:#333333; margin-bottom:5px; border-bottom:1px solid #dadada; }
+.rezervasyoninput { 
+    font-family: Arial;
+    width: 140px;
+    height: 40px;
+    padding: 0 40px 0 5px;
+    border: 0px;
+    outline: none;
+    background:#ffffff;
+    border:1px solid #dadada;
+    margin-left:12px;
+}
+.inputyazisi {width:100px; height:25px; margin-right:5px; padding-top:8px }
+.yazi2 { width:110px; }
+input,textarea { outline:none; }
+.inputtarih { width:114px;	cursor:pointer; background:url(../tema/v3/bg_tarih.png) no-repeat; height:33px; border:0px; outline:none; cursor:pointer; white-space: nowrap; overflow: hidden; line-height: 15px; padding:2px 0 0 8px; color:#ffffff; vertical-align:middle;}
+.gri { color:#666; }
+.arac img { width:200px; height:111px; padding:10px 5px; border:1px solid #ccc; margin-right:10px; border-radius:5px; }
+.bilgiler { width:220px; }
+.bilgiler .aracisim { color:#333; font-size:14px; min-height:35px; }
+.ara { width:10px; height:10px; }
+.gunarasi { width:110px; margin-bottom:2px; font-weight:normal !important; }
+.altcizgi { width:205px; background:url(../tema/alt_cizgi.jpg); height:1px; }
+.ozelselect{ background: url(../tema/v2/ozel.png) no-repeat; height:33px; margin-top:-8px; margin-bottom:-9px; padding:2px 0 0 4px; font-size:12px}
+.ozelselect ul{	list-style:none;}
+.ozelselect li{	width:150px; padding:0px;}
+.ozelselect li a{color:#666; display:block;	line-height:31px; margin:0px; padding:0px 3px; text-decoration:none;}
+.ozelselect li a:hover, .menu ul li:hover a{ color:#000; text-decoration:none;}
+.ozelselect li ul{	background:#fff; display:none; height:auto; border:1px solid #ccc; position:absolute; width:150px; z-index:300; margin-left:-2px}
+.ozelselect li:hover ul{ display:block; }
+.ozelselect li li {	display:block;	float:none; width:150px;}
+.ozelselect li:hover li a{	background:none;}
+.ozelselect li ul a{	line-height:20px;	display:block;	font-size:12px;	font-style:normal;	margin:0px;	padding:0px 10px 0px 15px;}
+.ozelselect li ul a:hover, .menu li ul li:hover a{	background:#0A246A;	border:0px;	color:#fff;}
+.rent .baslik { width:200px; height:auto; padding:7px 0 0 4px; font-size:21px; font-weight:700; font-family:Arial; letter-spacing:-1px; color:#111111; margin-bottom:5px; }
+.rent .sayfa { width:670px; padding:10px; padding-right:0px; border:none; border-bottom:1px solid #dadada; margin-bottom:10px; background:none; -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px; }
+.rent .sayfa .arac img { width:200px; height:111px; padding:11px 5px; border:none; margin-right:10px; border-radius:5px; }
+.rent .sayfa .yazilar { width:190px; height:20px; padding:3px 0 0 5px; font-size:14px; }
+.rent .sayfa .yazilar strong { display:inline-block; width:50px; font-weight:normal; }
+.rent .sayfa .yazilar2 { width:190px; height:24px; padding:3px 0 0 5px; font-size:14px; }
+.rent .sayfa .ozel { width:210px; padding:1px 0 1px 5px; font-size:14px; font-weight:bold; color:#111111 !important; }
+.rent .sayfa .yazilar3 { width:210px; height:22px; padding:5px 0 0 5px; font-size:14px; font-weight:bold; color:#111111 !important; }
+.rent .sayfa .yazilar4 { width:210px; height:22px; padding:5px 0 0 5px; font-size:14px; font-weight:bold; color:#111111 !important; }
+#rezervasyon { width:540px; height:300px; margin-right:20px; padding:0px; }
+#rezervasyon .alisdonus { width:540px; margin-bottom:10px; padding-top:6px; padding-bottom:4px; font-family: Tahoma; font-weight: 400; font-size:20px; }
+#rezervasyon .alisdonus label, .ozellabel { display:block; width:255px; font-size:10px; padding-top:5px; color:#777777; border-bottom:1px dotted #a6a6a6; text-transform:none; font-family:Arial; font-weight:300; } 
+#rezervasyon .alt { width:250px; margin-right:30px; }
+#rezervasyon .arama a{ display:block; background:url(../tema/v2/bt2.png) 0 0px no-repeat; width:125px; height:28px; color:#fff; text-align:center; font-family: 'Alegreya Sans SC', Arial, serif; font-weight: 700; }
+#rezervasyon .iptal a{ display:block; background:url(../tema/v2/bt3.png) 0 0px no-repeat; width:125px; height:28px; color:#fff; text-align:center; font-family: 'Alegreya Sans SC', Arial, serif; font-weight: 700; }
+#haberler { width:440px; }
+#haberler .baslik { width:440px; margin-bottom:10px; padding-top:6px; padding-bottom:4px; font-family: Tahoma; font-weight: 400; font-size:20px; }
+#haberler .baslik label { display:block; width:440px; font-size:10px; padding-top:5px; color:#777777; border-bottom:1px dotted #a6a6a6; text-transform:none; font-family:Arial; font-weight:300; }
+#haberler .alt { width:440px; height:218px; overflow:hidden; margin-top:20px; }
+#haberler .alt .hnew { background:#333333; width:436px; height:100px; overflow:hidden; padding:2px; }
+#haberler .alt .resim img { width:140px; height:100px; margin-right:10px; }
+#haberler .alt .haberadi { width:280px; height:18px; padding-top:5px; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #666666; font-family:Arial; font-weight: 600; letter-spacing:-0.5px; font-size:16px; color:#ffffff; }
+#haberler .alt .haberalt { width:280px; height: 60px; font-size:13px; color:#ffffff; text-align:left; font-family:Arial; }
+#haberler .alt .haberalt a { color:#e50000 !important; }
+#haberler .alt .devami { background:url(../tema/bg_devami.png); width:116px; height:17px; color:#fff; text-align:center; padding-top:3px; }
+#popup { width:200px; background:#fff; height:50px; border-radius:5px; }
+.dillink a{ display:block; padding:13px; }
+.dillink a:hover { background:#333333; }
+.dillink a img { height:14px !important; }
+.dillink:first-child a { margin-left:25px; }
+.fiyathesapla {
+    width:260px;
+    height:34px;
+    color:#ffffff;
+    text-align:center;
+    background:url(../tema/v3/bt1.png) no-repeat center;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    cursor:hand;
+    font-family: 'Alegreya Sans SC', Arial, serif; font-weight: 700;
+}
+
+.fiyathesapla.ufak {
+    width: 100px;
+     border-radius:5px;
+}
+
+#bulletmain { position:relative; }
+#bulletinner { position:absolute; left:0px; top:0px; }
+
+#bulleter {
+    float:right;
+    width:auto;
+    height:20px;
+    padding-top:4px;
+}
+
+#bulleter a {
+    background: url(../tema/v3/bullet.png);
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+#bulleter a#actbullet {
+    background: url(../tema/v3/bulleton.png);
+}
+
+#iformcont input[type=text] {
+    font-family: Arial;
+    width: 289px;
+    height: 40px;
+    padding: 0 40px 0 5px;
+    border: 0px;
+    outline: none;
+    background: url(../tema/v3/bg_input.png) no-repeat;
+    border-right:1px solid #dadada;
+}
+
+#iformcont #adisoyadi {
+    background-position: 0 0;
+    margin-left:0px;
+}
+
+#iformcont #tel {
+    background-position: 0 -50px;
+    margin-left:0px;
+}
+
+#iformcont #mail {
+    background-position: 0 -100px;
+    margin-left:0px;
+}
+
+#iformcont #konu {
+    background-position: 0 -150px;
+    margin-left:0px;
+}
+
+#iformcont #kod {
+    background-position: 0 -200px;
+    width: 135px;
+    border:none;
+}
+
+.stitle {
+    display:inline-block;
+    width:120px;
+}
+
+.adres {
+    background: url(../tema/v3/icon_iletisim.png) no-repeat;
+    background-position: 0 -43px;
+    width: 130px;
+    padding-left: 20px;
+    color: #202740;
+    height: 17px;
+    margin-bottom:10px;
+}
+
+.adres.tel {
+    background-position: 0 -19px;
+}
+
+.adres.email {
+    background-position: 0 -60px;
+}
+
+.ozelframe iframe,frame {
+    width:100%;
+}
+
+.textar {
+    width: 666px;
+    padding: 5px;
+    font-family: Arial;
+    outline: none;
+    resize: none;
+    border: 1px solid #ddd;
+    height: 75px;
+}
+
+#hesaplanan {
+    display:block;
+    margin-top:40px;
+    padding-top:40px;
+    color:#ffffff;
+    font-size:15px;
+}
+
+.paraa {
+    display:block;
+    float:left;
+    padding:7px 10px 7px;
+    width:62px;
+    text-align:center;
+    background:url(../tema/v3/pbirimnone.png) no-repeat center;
+    color:#ffffff;
+    font-size:20px;
+    font-weight:normal;
+    border-radius:5px;
+    border:none;
+    outline:none;
+}
+
+.kurhesap {
+    width: 50px;
+    height: 40px;
+    background: url(../tema/v3/bg_input.png) 0 -260px no-repeat;
+    border: 0px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 14px;
+    outline: none;
+    color: white;
+}
+
+.kurhesap#k2 {
+    background: url(../tema/v3/bg_input.png) -170px -260px no-repeat;
+    margin-left:7px;
+}
+
+.kurhesap#k3 {
+    background: url(../tema/v3/bg_input.png) -85px -260px no-repeat;
+    margin-left:7px;
+}
+
+.paraa#act {
+    background:url(../tema/v3/pbirim.png) no-repeat center;
+}
+
+#foomap {
+    width:100px;
+    height:20px;
+    margin-left:-166px;
+    margin-top:38px;
+    text-align:center;
+}
+
+#foomap a {
+    display:block;
+    float:left;
+    width:20px;
+    height:20px;
+    overflow:hidden;
+    margin-left:20px;
+}
+
+.fiyathesapla.low {
+    background-position:left;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-top:10px;
+}
+
+.fiyathesapla.lowyeni {
+    width:205px;
+    background:#1C1B1B;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:normal;
+    margin-top:5px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.fiyathesapla.ustbn {
+    width:130px;
+    margin:0px !important;
+    background:#d90000;
+    color:#ffffff;
+    border-radius:4px;
+}
+
+.fiyathesapla.lowyeni:hover {
+    background:#d90000;
+    color:#111111;
+}
+
+.fiyathesapla.lowyeni.ufak {
+    display:block;
+    padding:5px;
+    height:20px;
+    margin:0px;
+    width:100px;
+}
+
+.fiyathesapla.low.x {
+    
+}
+
+.fiyathesapla.low.very {
+    width:130px;
+    background:url(../tema/v2/bg_buton.png) no-repeat left bottom;
+    padding-bottom:5px;
+}
+
+.fiyathesapla.low.very.a {
+    display:block;
+    padding:5px;
+    padding-right:0px;
+    padding-left:30px;
+    margin:0px;
+    width:100px;
+    height:auto;
+    margin-left:-10px;
+}
+
+#rentbilgi {
+    width:680px;
+    display:table;
+    border-bottom:1px solid #dadada;
+    padding-bottom:5px;
+}
+
+#rentleft, #rentright {
+    display:table-cell;
+    width:50%;
+    text-align:left;
+    vertical-align:top;
+}
+
+#rentbilgi h3 {
+    font-size:20px; font-family:Arial; font-weight:700; letter-spacing:0px; color:#333333; margin-bottom:5px; padding-bottom:10px; border-bottom:1px solid #dadada; background:url(../tema/v3/baslikalt.png) no-repeat left bottom;
+}
+
+#rentbilgi span {
+    display:block;
+    font-size:14px;
+    padding-top:5px;
+    padding-bottom:5px;
+    color:#5a5a5a;
+    font-family:Arial;
+}
+
+#rentbilgi span strong {
+    display:inline-block;
+    width:120px;
+    font-weight:normal;
+}
+
+.newtitle {
+    display:inline-block;
+    font-size:19px;
+    font-weight:300;
+    padding-right:10px;
+    float:left;
+    color:#111111;
+}
+
+.sayfa.salt {
+    border: none; background:none; padding:0px;
+    -webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
+    padding-bottom:8px;
+    width:680px;
+    margin-top:5px;
+}
+
+.titlered {
+    width:200px; height:auto; padding:7px 0 0 4px; font-size:21px; font-weight:700; font-family:Arial; letter-spacing:-1px; color:#111111; margin-bottom:5px;
+}
+
+.titlered.tted {
+    display:block; width:338px; font-size:20px; font-family:Arial; font-weight:700; letter-spacing:0px; color:#333333; padding-bottom:10px; border-bottom:1px solid #dadada; background:url(../tema/v3/baslikalt.png) no-repeat left bottom;
+}
+
+#rezarac {
+    border: none; border-bottom:1px solid #dadada; background:none; padding:0px; width:680px;
+    padding-bottom:10px;
+}
+
+.iletisimok {
+    display:block;
+    text-align:center;
+    padding:10px;
+    border:1px solid #2f8f00;
+    background:#d7ffc4;
+    width:656px;
+    margin-top:15px !important;
+}
+
+.iletisimfail {
+    display:block;
+    text-align:center;
+    padding:10px;
+    border:1px solid #ce0000;
+    background:#ffeaea;
+    width:656px;
+    margin-top:15px !important;
+}
+
+.yazi.nw {
+    display:inline-block;
+    width:120px;
+    font-weight:bold;
+}
+
+.sol.ilk {
+     background:url(../tema/v2/menutick.png) no-repeat left;
+     width:175px; padding:12px 0;
+     padding-left:25px;
+}
+
+#ustbanner {
+    clear:both;
+    width:100%;
+    height:390px;
+    margin-bottom:20px;
+    position:relative;
+    background:#e2e2e2;
+}
+
+#bannercont {
+    width:100%;
+    height:390px;
+    overflow:hidden;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+
+#bannerinner {
+    width:100%;
+    height:390px;
+    position:relative;
+    overflow:hidden;
+}
+
+.banner {
+    position:absolute;
+    width:100%;
+    height:390px;
+    background-position:top center;
+    background-repeat:no-repeat;
+}
+
+#icerikcont {
+    position:absolute;
+    width:970px;
+    height:126px;
+    padding:10px;
+    padding-left:20px;
+    left:50%;
+    margin-left:-500px;
+    top:50%;
+    margin-top:-73px;
+    background:url(../tema/v3/golge.png) repeat center;
+    -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px;
+}
+
+#icerikcontselector {
+    position:absolute;
+    width:1000px;
+    height:60px;
+    bottom:0px;
+    left:50%;
+    margin-left:-500px;
+}
+
+#icerikcontselector a {
+    display:block;
+    float:left;
+    font-size:18px;
+    font-weight:300;
+    color:#999999;
+    padding-left:15px;
+    padding-right:15px;
+    height:60px;
+    line-height:70px;
+    margin-right:5px;
+}
+
+#icerikcontselector a:hover, #icerikcontselector a#akticr {
+    background:url(../tema/v3/aktifust.png) no-repeat bottom center;
+    color:#e2e2e2;
+}
+
+.ozelinp {
+    background:url(../tema/v3/select_left.png) no-repeat left;
+    height:35px;
+    width:249px;
+    padding-left:10px;
+    color:#ffffff;
+    outline:none;
+    border:none;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#transfercont select {
+    width:219px !important;
+}
+
+#homehaber {
+    width:1000px;
+    margin:0px auto;
+    overflow:hidden;
+}
+
+#habercontainer {
+    width:1040px;
+}
+
+#clearhaber {
+    clear:both;
+    height:8px;
+}
+
+.haberdiv {
+    width:480px;
+    height:90px;
+    padding:5px;
+    overflow:hidden;
+    float:left;
+    background:#ffffff;
+    border:1px solid #dadada;
+    margin-right:16px;
+    margin-bottom:10px;
+    margin-top:6px;
+    display:table;
+}
+
+.haberresim {
+    display:table-cell;
+    width:120px;
+    height:90px;
+    padding-right:10px;
+    vertical-align:top;
+}
+
+.haberresim img {
+    width:100%;
+    height:100%;
+}
+
+.haberdesc {
+    display:table-cell;
+    vertical-align:top;
+    position:relative;
+}
+
+.haberdesc h1 {
+    margin:0px;
+    padding:0px;
+    padding-bottom:5px;
+    font-size:17px;
+    color:#111111;
+    font-weight:bold;
+    letter-spacing:-1px;
+}
+
+.haberdesc h1 a { color:#111111; }
+
+.haberdesc h2 {
+    margin:0px;
+    padding:0px;
+    padding-bottom:5px;
+    font-size:12px;
+    color:#555555;
+    font-weight:normal;
+    font-family:Tahoma;
+    line-height:16px;
+}
+
+.hdevam {
+    position:absolute;
+    right:0px;
+    bottom:3px;
+}
+
+.devamia {
+    background:#d90000;
+    font-size:10px;
+    color:#ffffff;
+    padding:3px 10px;
+}
+
+.macar {
+    display:none !important;
+}
+
+@media (max-width: 800px) {
+    #genel {
+        width:100% !important;
+        float:none !important;
+    }
+    
+    #ustalan {
+        float:none !important;
+        width:100% !important;
+        position:relative;
+    }
+    
+    .saghaber {
+        display:none;
+    }
+    
+    .musterihiz {
+        display:none !important;
+        position:absolute;
+        right:10px;
+        top:12px !important;
+        margin:0px !important;
+        font-size:0px !important;
+    }
+    
+    #ustalan .diller {
+        position:absolute;
+        left:0px;
+        top:0px;
+        margin:0px !important;
+        width:100% !important;
+        text-align:left !important;
+        padding-right:10px !important;
+        padding-left:10px !important;
+        box-sizing:border-box;
+    }
+    
+    .musterihiz strong {
+        font-size:13px !important;
+    }
+    
+    .dillink {
+        width:auto !important;
+        float:none !important;
+        display:inline-block !important;
+    }
+    
+    .dillink a {
+        padding-left:1px !important;
+        padding-right:1px !important;
+        margin:0px !important;
+    }
+    
+    .dillink.sagayasla {
+        float:right !important;
+        margin-right:5px !important;
+    }
+    
+    .mbar {
+        top:140px !important;
+        left:0px !important;
+        width:100% !important;
+        height:46px;
+        background:#111111;
+        z-index:999;
+    }
+    
+    #ustalan .mbar a {
+        display:block !important;
+        padding:14px !important;
+        box-sizing:border-box;
+        border-bottom:1px solid #333333;
+        border-top:1px solid #333333;
+    }
+    
+    .macar {
+        display:block !important;
+        background:url(../tema/menu.png) no-repeat 10px !important;
+    }
+    
+    #logo {
+        float:none !important;
+        width:100% !important;
+        padding:0px !important;
+        margin:0px !important;
+        text-align:center !important;
+        overflow:visible !important;
+    }
+    
+    #logo img {
+        width:240px !important;
+        padding-top:40px !important;
+    }
+    
+    #rezervasyon {
+        width:100% !important;
+        margin:0px !important;
+        margin-top:40px !important;
+        box-sizing:border-box;
+        text-align:center !important;
+        height:auto !important;
+        overflow:visible !important;
+        padding-left:10px;
+        padding-right:10px;
+    }
+    
+    #rezervasyon .alisdonus {
+        width:100% !important;
+        text-align:center;
+    }
+    
+    #rezervasyon .alt {
+        margin:0px auto !important;
+        display:block !important;
+        float:none !important;
+        width:100% !important;
+        box-sizing:border-box;
+        text-align:left !important;
+    }
+    
+    #rezervasyon .alt .temizle {
+        width:100% !important;
+    }
+    
+    #modulcont {
+        height:auto !important;
+        background:#333333 !important;
+    }
+    
+    #rezervasyon .alt .jqTransformSelectWrapper, #solmenu .jqTransformSelectWrapper {
+        width:100% !important;
+        background-repeat:repeat !important;
+    }
+    
+    #haberler, #vitrinalani, #modulalani, #foother {
+        width:100% !important;
+        overflow:hidden !important;
+        padding-left:10px !important;
+        padding-right:10px !important;
+        box-sizing:border-box;
+    }
+    
+    #foother {
+        border-top:3px solid #f1131d;
+    }
+    
+    #haberler {
+        border-top:3px solid #f1131d;
+        border-bottom:3px solid #f1131d;
+        background: url(../tema/carbg.png) no-repeat center center !important; 
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+    }
+    
+    #modulalani .modul {
+        display:block !important;
+        width:100% !important;
+    }
+    
+    #haberler .baslik {
+        width:100% !important;
+        margin-bottom:0px !important;
+        color:#ffffff !important;
+        border-bottom:1px solid #666666;
+    }
+    
+    #bulletmain {
+        width:100% !important;
+    }
+    
+    #mobfullsize, .mobfullsize {
+         width:100% !important;
+    }
+    
+    #haberler .alt .hnew {
+        width:100% !important;
+        background:none !important;
+        height:96px !important;
+    }
+    
+    #haberler .alt .hnew .resim {
+        display:none !important;
+    }
+    
+    #haberler .alt .haberadi, #haberler .alt .haberalt {
+        width:100% !important;
+    }
+    
+    .mobintb {
+        display:table !important;
+        width:100% !important;
+    }
+    
+    .mobintbtd {
+        display:table-cell !important;
+        width:33% !important;
+        padding-left:10px !important;
+        float:none !important;
+    }
+    
+    .firsttb {
+        padding-left:0px !important;
+        padding-right:8px !important;
+    }
+    
+    .inputtarih {
+        width:100% !important;
+        background:url(../tema/v3/select_left.png) no-repeat left !important;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    
+    .dp-choose-date {
+        width:40px !important;
+        background:red !important;
+        margin-left:-48px !important;
+        background:url(../tema/v3/tarih.html) no-repeat right !important;
+    }
+    
+    #dp-popup {
+        margin:0px !important;
+        margin-top:40px !important;
+        margin-left:10px !important;
+    }
+    
+    .mobhide {
+        display:none !important;
+    }
+    
+    #rezervasyon .fiyathesapla {
+        width:100% !important;
+        background:url(../tema/v3/btrepeat.html) repeat-x !important;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    #vitrinalani {
+        margin-top:10px !important;
+    }
+    
+    #slmidinner {
+        width:100% !important;
+    }
+    
+    .vdiv {
+        width:236px !important;
+    }
+    
+    .vdivimg img {
+        width:230px !important;
+        padding:0px !important;
+    }
+    
+    .vdivfiyat {
+        font-size:14px !important;
+        padding:0px !important;
+        padding-top:3px !important;
+        padding-bottom:3px !important;
+        top:40px !important;
+    }
+    
+    .vdivgo {
+        width:100% !important;
+        text-align:center !important;
+        left:0px !important;
+    }
+    
+    #infocarrier {
+        float:none !important;
+        margin:0px auto !important;
+        width:100% !important;
+        padding:0px !important;
+    }
+    
+    #infocarrier label {
+        float:none !important;
+        display:inline-block !important;
+        text-align:left !important;
+    }
+    
+    #modulalani .modul {
+        border-top:none !important;
+        border-bottom:1px solid #222222 !important;
+    }
+    
+    #modulalani {
+        border-top:3px solid #f1131d;
+    }
+    
+    #modulalani .modulalt {
+        text-align:center !important;
+        width:100% !important;
+        min-height:100px !important;
+        padding-bottom:10px !important;
+    }
+    
+    #mesafe {
+        width:250px !important;
+        float:none !important;
+        margin:0px auto !important;
+        text-align:left !important;
+        padding-left:0px !important;
+        height:100px !important;
+    }
+    
+    .tbigbaslik {
+        font-size:16px;
+        letter-spacing:-1px;
+    }
+    
+    #foother {
+        height:140px !important;
+        background:#222222;
+    }
+    
+    #foother .foother {
+        display:none !important;
+    }
+    
+    #foother .foother-sag {
+        display:none !important;
+    }
+    
+    #foother .foother-sol2 {
+        width:100% !important;
+        height:80px !important;
+    }
+    
+    #foother .foother-sol2 .tanitim {
+        width:100% !important;
+        text-align:center !important;
+    }
+    
+    #foother .foother-sol2 .tanitim a {
+        display:block;
+        width:100% !important;
+        border-top:1px solid #333333;
+        padding-top:20px !important;
+    }
+    
+    #solmenu, #solmenu .modul, #solmenu .modulalt {
+        width:100% !important;
+        text-align:left !important;
+    }
+    
+    #solmenu .modulbaslik {
+        width:100% !important;
+    }
+    
+    #solmenu .temizle {
+        width:100% !important;
+    }
+    
+    #containerid {
+        width:100% !important;
+        box-sizing:border-box;
+        overflow:hidden !important;
+    }
+    
+    #rentbilgi {
+        padding:10px !important;
+        box-sizing:border-box;
+        width:100% !important;
+        display:block;
+        margin-top:40px !important;
+        margin-bottom:20px !important;
+        border-top:3px solid #f1131d !important;
+        border-bottom:3px solid #f1131d !important;
+        background: url(../tema/carbg.png) no-repeat center center !important; 
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+        color:#f2f2f2 !important;
+    }
+    
+    #rentbilgi span {
+        color:#f2f2f2 !important;
+        font-size:11px !important;
+    }
+    
+    #rentleft, #rentright {
+        display:block !important;
+        width:100% !important;
+        padding-bottom:10px !important;
+    }
+    
+    #rentbilgi h3 {
+        border-bottom:1px solid #666666 !important;
+        color:#ffffff !important;
+    }
+    
+    .sol .rent {
+        float:none !important;
+        width:96% !important;
+        margin:0px auto !important;
+    }
+    
+    .rent .sayfa {
+        float:none !important;
+        width:100% !important;
+        height:180px;
+        position:relative;
+    }
+    
+    .sayfa .bilgiler {
+        border:none;
+    }
+    
+    .sayfa .fiyat {
+        float:right;
+    }
+    
+    .sayfa .fiyathesapla.low {
+        width:210px;
+        margin:0px !important;
+    }
+    
+    .sayfa .bilgiler, .sayfa .arac, .sayfa .fiyat {
+        display:block !important;
+        width:100% !important;
+        text-align:center !important;
+    }
+    
+    .sayfa .fiyat {
+        float:none !important;
+        width:210px !important;
+        margin:0px auto !important;
+    }
+    
+    .sayfa .fiyathesapla.low {
+        width:200px !important;
+        margin:0px !important;
+    }
+    
+    .rent .sayfa .kisisayisi {
+        display:none !important;
+    }
+    
+    .rent .sayfa .yazilar, .rent .sayfa .yazilar2, .mobyazilar {
+        float:none !important;
+        text-align:center !important;
+        margin:0px auto !important;
+        display:inline-block !important;
+        width:auto !important;
+        text-align:center !important;
+        padding:0px !important;
+        font-weight:bold;
+        color:#999999;
+    }
+    
+    .rent .sayfa {
+        height:420px;
+        margin:0px auto !important;
+        padding:0px !important;
+        box-sizing:border-box;
+    }
+    
+    .rent .baslik {
+        float:none !important;
+        width:auto !important;
+        text-align:center !important;
+        border-bottom:1px solid #dadada;
+        padding-bottom:5px;
+    }
+    
+    .sayfa .gunarasi {
+        text-align:left !important;
+    }
+    
+    .mobmid {
+        width:100% !important;
+        text-align:center !important;
+        margin-top:-10px !important;
+    }
+    
+    .mobpadtop {
+        padding-top:20px !important;
+    }
+    
+    .mobpadded {
+        padding:10px !important;
+        box-sizing:border-box;
+        padding-top:40px !important;
+        padding-bottom:40px !important;
+    }
+    
+    .mobfullsize .sayfa {
+        width:100% !important;
+    }
+    
+    #iformcont {
+        width:100% !important;
+        position:relative !important;
+        padding-bottom:50px !important;
+    }
+    
+    #iformcont .sol {
+        width:100%;
+        margin-bottom:10px !important;
+    }
+    
+    .rezervasyoninput {
+        width:100% !important;
+        box-sizing:border-box;
+        background:#ffffff !important;
+    }
+    
+    #iformcont .rezervasyoninput {
+        background:none !important;
+        border:1px solid #dadada !important;
+        padding:10px !important;
+        background:#ffffff !important;
+    }
+    
+    #iformcont .textar {
+        width:100% !important;
+        box-sizing:border-box;
+    }
+    
+    .mobfixed1 {
+        width:90px !important;
+        display:inline-block !important;
+    }
+    
+    .mobfixed2 {
+        width:120px !important;
+        display:block !important;
+    }
+    
+    #iformcont #kod {
+        width:135px !important;
+        margin:0px !important;
+    }
+    
+    .mobfixed2 .fiyathesapla {
+        position:absolute !important;
+        bottom:0px !important;
+        left:0px !important;
+        width:100% !important;
+    }
+    
+    .adres {
+        width:100% !important;
+        box-sizing:border-box;
+        font-size:11px !important;
+        margin-bottom:20px !important;
+    }
+    
+    .ozelframe {
+        width:100% !important;
+        height:auto !important;
+        box-sizing:border-box;
+    }
+    
+    .ozelframe iframe,frame {
+        width:100% !important;
+        height:auto !important;
+    }
+    
+    .stitle {
+        width:100px !important;
+    }
+    
+    .unvantt {
+        font-size:18px !important;
+        letter-spacing:-1px !important;
+    }
+    
+    .iletisimok, .iletisimfail {
+        width:100% !important;
+        box-sizing:border-box;
+    }
+    
+    .bilgiler .titlered {
+        width:100% !important;
+        text-align:center !important;
+        border-bottom:1px solid #e2e2e2;
+    }
+    
+    .bilgiler .kisisayisi {
+        display:none !important;
+    }
+    
+    .tted {
+        width:100% !important;
+        border-bottom:1px solid #666666 !important;
+    }
+    
+    .tted.mwhite {
+        color:#ffffff !important;
+        padding-bottom:0px !important;
+    }
+    
+    #rentbilgi .takvim {
+        width:100% !important;
+    }
+    
+    .mobsecenekli, .mobkisisel {
+        padding-left:10px !important;
+        padding-right:10px !important;
+        box-sizing:border-box;
+    }
+    
+    .mobsecenekli .secenekler {
+        display:block;
+        margin:0px !important;
+        float:none !important;
+        width:100% !important;
+        box-sizing:border-box;
+        border-bottom:1px solid #e2e2e2;
+    }
+    
+    .mobsecenekli .secenekler span {
+        width:100%;
+        display:block;
+        float:none !important;
+    }
+    
+    .mobsecenekli .updown {
+        display:none !important;
+    }
+    
+    .secenekisim {
+        font-weight:bold;
+    }
+    
+    .exmobfy {
+        display:inline-block !important;
+        width:auto !important;
+        font-size:11px !important;
+    }
+    
+    .mobkisisel {
+        font-size:0px !important;
+    }
+    
+    .mobkisisel .yazi2 {
+        font-size:13px !important;
+        display:block !important;
+        width:100% !important;
+        padding:0px !important;
+    }
+    
+    .mobkisisel .yazi2 span {
+        font-size:0px !important;
+    }
+    
+    .inputyazisi {
+        height:auto !important;
+        margin-top:0px !important;
+    }
+    
+    .mobkisisel .sol {
+        width:100% !important;
+        margin-left:0px !important;
+    }
+    
+    .mobkisisel .rezervasyoninput {
+        margin:0px !important;
+        width:100% !important;
+        box-sizing:border-box;
+    }
+    
+    .mobkisisel .textar {
+        width:100% !important;
+        margin:0px !important;
+        box-sizing:border-box;
+    }
+    
+    .mobkisisel .yazigoster {
+        font-size:11px !important;
+    }
+    
+    .mobkisisel img {
+        float:left !important;
+    }
+    
+    .mobkisisel #kod {
+        width:100px !important;
+    }
+    
+    .mobkisisel .fiyathesapla {
+        width:100% !important;
+        box-sizing:border-box;
+    }
+    
+    .marded {
+        box-sizing:border-box;
+    }
+    
+    .mobmartop {
+        margin-top:40px !important;
+    }
+    
+    .mobfullrezerli {
+        width:100% !important;
+        padding-left:10px !important;
+        padding-right:10px !important;
+        box-sizing:border-box;
+        overflow:hidden !important;
+    }
+    
+    .mobfullrezerli .temizle {
+        width:100% !important;
+        font-size:11px !important;
+    }
+    
+    .mobfullrezerli .yazi2 {
+        font-weight:bold !important;
+    }
+    
+    .mustinline {
+        width:96% !important;
+        margin:0px auto !important;
+        float:none !important;
+        text-align:left !important;
+        margin-top:20px !important;
+    }
+    
+    .mustinline .fontkalin {
+        display:none !important;
+    }
+    
+    .mustinline .nokta {
+        display:none !important;
+    }
+    
+    .mustinline .ilk {
+        background:none !important;
+        padding-left:0px !important;
+    }
+    
+    .sol.nopad {
+        padding:8px !important;
+        padding-left:0px !important;
+        text-align:left !important;
+    }
+    
+    .mustinline {
+        width:100% !important;
+        margin:0px auto !important;
+        float:none !important;
+        text-align:left !important;
+        font-size:11px !important;
+    }
+    
+    .mustinline strong {
+        display:inline-block !important;
+        width:110px !important;
+        font-size:10px !important;
+    }
+    
+    .mustinline strong span {
+        float:right;
+    }
+    
+    .mustinline .sol {
+        width:100% !important;
+        box-sizing:border-box;
+        border-bottom:1px solid #e2e2e2;
+    }
+    
+    .rexz {
+        border:none !important;
+        margin-bottom:20px !important;
+    }
+    
+    .mustinline a {
+        text-align:left !important;
+        padding-left:40px !important;
+    }
+    
+    .mustinline strong {
+        display:inline-block;
+        width:120px;
+    }
+    
+    .padlr {
+        padding-left:10px !important;
+        padding-right:10px !important;
+        box-sizing:border-box;
+    }
+    
+    .fiyathesapla.lowyeni.ufak.mobfull {
+        padding:10px !important;
+        width:100% !important;
+        margin:0px !important;
+        text-align:center !important;
+        box-sizing:border-box;
+        height:40px !important;
+    }
+    
+    .mobnopad {
+        padding-left:0px !important;
+        padding-right:0px !important;
+    }
+    
+    .sizeks {
+        font-size:15px !important;
+        letter-spacing:-1px !important;
+    }
+    
+    .sol.mobfleft {
+        float:left !important;
+        width:auto !important;
+    }
+    
+    .mobnomar {
+        margin-left:0px !important;
+    }
+    
+    .nphone {
+        width: 140px;
+        padding: 10px;
+        position: absolute;
+        color: #ffffff;
+        right: 10px;
+        top: -9px;
+        z-index: 9999;
+        background: url(../tema/phone.png) no-repeat right;
+        text-align: right;
+        padding-right: 40px;
+        font-size: 16px;
+        cursor: pointer;
+        cursor: hand;
+        border:none !important;
+    }
+    
+    .nphone a {
+        border:none !important;
+    }
+    
+    #homehaber {
+        box-sizing:border-box;
+        padding-top:0px !important;
+        padding-bottom:0px !important;
+    }
+    
+    #habercontainer {
+        width:100% !important;
+    }
+    
+    .haberdiv {
+        float:none !important;
+        width:100% !important;
+        box-sizing:border-box;
+    }
+    
+    #bannercont {
+        display:none !important;
+    }
+    
+    #icerikcont {
+        width:100% !important;
+        padding:10px 0px !important;
+        box-sizing:border-box;
+        position:relative !important;
+        left:0px !important;
+        top:0px !important;
+        margin:0px !important;
+        background:none !important;
+    }
+    
+    .mobrezervasyon {
+        display:block !important;
+        width:100%;
+    }
+    
+    #rezervasyoncont {
+        width:100% !important;
+    }
+    
+    #yeniform {
+        display:none !important;
+    }
+    
+    #rezervasyon .fiyathesapla {
+        background:#d90000 !important;
+    }
+    
+    body {
+        background-color:#e2e2e2;
+    }
+    
+    #containerid {
+        padding-top:30px !important;
+    }
+    
+    #containerid .fiyathesapla {
+        width:100% !important;
+        margin:0px !important;
+        float:none !important;
+    }
+    
+    .rent .sayfa .sag {
+        float:none !important;
+        width:100% !important;
+    }
+    
+    #rezpadmex4 {
+        padding-bottom:20px !important;
+    }
+    
+    .mobsag {
+        float:right !important;
+    }
+    
+    .dillink.mobsag {
+        margin:0px !important;
+    }
+    
+    .mobnoflow {
+        overflow:visible !important;
+    }
+    
+    #newslide2 {
+        width:100% !important;
+    }
+    
+    .vdiv {
+        width:99% !important;
+        margin-bottom:10px !important;
+    }
+    
+    .vdivimg {
+        text-align:center !important;
+    }
+    
+    #slidebullets {
+        display:none !important;
+    }
+}
+
+.mobrezervasyon {
+    display:none;
+}
+
+.mustinline strong {
+    display:none;
+}
+
+#kod {
+    text-transform:uppercase;
+}
+
+@media (max-width: 350px) {
+    #rezervasyon {
+        margin-top:10px !important;
+    }
+    
+    #rentbilgi {
+        margin-top:20px !important;
+    }
+    
+    .dp-choose-date {
+        background:none !important;
+    }
+    
+    .inputtarih {
+        font-size:13px !important;
+        font-weight:bold !important;
+        letter-spacing:-0.5px !important;
+    }
+    
+    .mobpadded {
+        padding-top:10px !important;
+    }
+    
+    .mobmartop {
+        margin-top:10px !important;
+    }
+    
+    .haberresim {
+        display:none !important;
+    }
+    
+    .title.home.full {
+        font-size:13px !important;
+    }
+}
+
+#kod { text-transform:uppercase !important; }
+
